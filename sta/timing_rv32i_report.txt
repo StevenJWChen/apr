@@ -1,0 +1,24 @@
+Static Timing Analysis Report – RV32I / demo130
+====================================================
+Clock period target : 10.0 ns  (100 MHz)
+
+Cell inventory
+  Combinational cells : 6027
+  Flip-flops          : 1024
+
+Critical path breakdown
+  Clock-to-Q delay    : 0.250 ns
+  Combinational delay : 4.908 ns
+  Wire delay (total)  : 3221.023 ns
+  ─────────────────────────────────────────────
+  Data arrival time   : 5.158 ns
+  Data required time  : 9.800 ns
+
+Slack
+  Setup slack : +4.642 ns  → PASS
+  Hold slack  : +0.200 ns  → PASS
+
+Performance
+  Achievable Fmax     : 186.6 MHz
+====================================================
+Overall STA status : PASS

@@ -1,0 +1,10 @@
+DRC Report – RV32I / demo130
+=============================================
+  Core           : 300.0 x 300.0 µm
+  Cells checked  : 7051
+  Nets checked   : 4274
+  Utilisation    : 63.18 %
+---------------------------------------------
+  No violations found.
+=============================================
+DRC status : CLEAN

@@ -1,0 +1,12 @@
+RV32I IC Design Flow Report
+============================================================
+Step 1: RTL Simulation                 PASS  (0.0s)
+Step 2: Synthesis                      PASS  (4.6s)
+Step 3: Gate-Level Simulation          PASS  (1.2s)
+Step 4: Place-and-Route                PASS  (0.4s)
+Step 5: Static Timing                  PASS  (0.1s)
+Step 6: DRC                            PASS  (0.1s)
+Step 7: LVS                            PASS  (0.1s)
+Step 8: GDS Export                     PASS  (0.2s)
+============================================================
+Overall: PASS

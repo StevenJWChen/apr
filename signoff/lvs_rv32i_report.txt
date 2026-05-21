@@ -1,0 +1,8 @@
+LVS Report – RV32I / demo130
+=============================================
+  Schematic cells : 5938
+  Layout cells    : 5938
+---------------------------------------------
+  Schematic matches layout – LVS CLEAN.
+=============================================
+LVS status : PASS

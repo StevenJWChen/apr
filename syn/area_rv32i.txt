@@ -1,0 +1,96 @@
+
+13. Printing statistics.
+
+=== rv32i_alu ===
+
+   Number of wires:               1569
+   Number of wire bits:           1665
+   Number of public wires:           5
+   Number of public wire bits:     101
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               1597
+     AND2                           82
+     INV                            72
+     MUX2                          262
+     NAND2                         585
+     NOR2                          457
+     OR2                            86
+     XNOR2                          31
+     XOR2                           22
+
+   Chip area for module '\rv32i_alu': 1392.500000
+
+=== rv32i_core ===
+
+   Number of wires:               1302
+   Number of wire bits:           1618
+   Number of public wires:          17
+   Number of public wire bits:     333
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               1394
+     AND2                          122
+     DFF                            32
+     INV                            60
+     MUX2                           66
+     NAND2                         551
+     NOR2                          341
+     OR2                            87
+     XNOR2                          71
+     XOR2                           62
+     rv32i_alu                       1
+     rv32i_regfile                   1
+
+   Area for cell type \rv32i_alu is unknown!
+   Area for cell type \rv32i_regfile is unknown!
+
+   Chip area for module '\rv32i_core': 1254.000000
+
+=== rv32i_regfile ===
+
+   Number of wires:               4037
+   Number of wire bits:           5103
+   Number of public wires:          39
+   Number of public wire bits:    1105
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               4062
+     AND2                          102
+     DFF                           992
+     MUX2                         2912
+     NAND2                          18
+     NOR2                           37
+     OR2                             1
+
+   Chip area for module '\rv32i_regfile': 5768.250000
+
+=== design hierarchy ===
+
+   rv32i_core                        1
+     rv32i_alu                       1
+     rv32i_regfile                   1
+
+   Number of wires:               6908
+   Number of wire bits:           8386
+   Number of public wires:          61
+   Number of public wire bits:    1539
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               7051
+     AND2                          306
+     DFF                          1024
+     INV                           132
+     MUX2                         3240
+     NAND2                        1154
+     NOR2                          835
+     OR2                           174
+     XNOR2                         102
+     XOR2                           84
+
+   Chip area for top module '\rv32i_core': 8414.750000
+

@@ -1,0 +1,9 @@
+Place-and-Route Report – RV32I / demo130
+=============================================
+  Cells placed       : 7051
+  Core area          : 300.0 x 300.0 µm
+  Cell area utilisa. : 63.18 %
+  Total wire length  : 1610511.5 µm
+  Nets routed        : 4274
+=============================================
+Status : COMPLETE
