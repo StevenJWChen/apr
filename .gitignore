@@ -1,5 +1,7 @@
 sim/rtl_sim
 sim/gl_sim
+sim/rv32i_rtl_sim
+sim/rv32i_gl_sim
 __pycache__/
 *.pyc
 gds/acc4_layout.png
