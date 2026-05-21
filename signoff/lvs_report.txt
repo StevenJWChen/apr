@@ -1,0 +1,8 @@
+LVS Report – ACC4 / demo130
+=============================================
+  Schematic cells : 44
+  Layout cells    : 44
+---------------------------------------------
+  Schematic matches layout.
+=============================================
+LVS status : PASS

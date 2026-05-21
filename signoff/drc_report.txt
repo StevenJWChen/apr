@@ -1,0 +1,10 @@
+DRC Report – ACC4 / demo130
+=============================================
+  Core           : 50.0 x 50.0 µm
+  Cells checked  : 44
+  Nets checked   : 51
+  Utilisation    : 12.32 %
+---------------------------------------------
+  No violations found.
+=============================================
+DRC status : CLEAN

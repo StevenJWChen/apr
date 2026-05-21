@@ -1,0 +1,9 @@
+Place-and-Route Report – ACC4 / demo130
+=============================================
+  Cells placed       : 44
+  Core area          : 50.0 x 50.0 µm
+  Cell area utilisa. : 12.32 %
+  Total wire length  : 904.0 µm
+  Nets routed        : 51
+=============================================
+Status : COMPLETE

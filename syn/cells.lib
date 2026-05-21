@@ -1,0 +1,309 @@
+/* Simplified 130nm standard cell library for ACC4 demo */
+library (demo130) {
+  time_unit : "1ns";
+  voltage_unit : "1V";
+  current_unit : "1mA";
+  capacitive_load_unit (1,ff);
+  leakage_power_unit : "1nW";
+
+  nom_process    : 1.0;
+  nom_temperature: 25.0;
+  nom_voltage    : 1.8;
+
+  /* LUT template required by ABC's liberty reader */
+  lu_table_template (delay_1x1) {
+    variable_1 : input_net_transition;
+    variable_2 : total_output_net_capacitance;
+    index_1 ("0.1");
+    index_2 ("10.0");
+  }
+
+  /* ── INV ───────────────────────────────────────────────── */
+  cell (INV) {
+    area : 0.5;
+    pin (A) { direction : input;  capacitance : 2; }
+    pin (Y) {
+      direction : output;
+      function : "!A";
+      timing () {
+        related_pin : "A";
+        timing_sense : negative_unate;
+        cell_rise        (delay_1x1) { values ("0.08"); }
+        cell_fall        (delay_1x1) { values ("0.07"); }
+        rise_transition  (delay_1x1) { values ("0.01"); }
+        fall_transition  (delay_1x1) { values ("0.01"); }
+      }
+    }
+  }
+
+  /* ── BUF ───────────────────────────────────────────────── */
+  cell (BUF) {
+    area : 0.5;
+    pin (A) { direction : input;  capacitance : 2; }
+    pin (Y) {
+      direction : output;
+      function : "A";
+      timing () {
+        related_pin : "A";
+        timing_sense : positive_unate;
+        cell_rise        (delay_1x1) { values ("0.10"); }
+        cell_fall        (delay_1x1) { values ("0.09"); }
+        rise_transition  (delay_1x1) { values ("0.01"); }
+        fall_transition  (delay_1x1) { values ("0.01"); }
+      }
+    }
+  }
+
+  /* ── NAND2 ─────────────────────────────────────────────── */
+  cell (NAND2) {
+    area : 0.75;
+    pin (A) { direction : input;  capacitance : 2; }
+    pin (B) { direction : input;  capacitance : 2; }
+    pin (Y) {
+      direction : output;
+      function : "!(A*B)";
+      timing () {
+        related_pin : "A";
+        timing_sense : negative_unate;
+        cell_rise        (delay_1x1) { values ("0.10"); }
+        cell_fall        (delay_1x1) { values ("0.08"); }
+        rise_transition  (delay_1x1) { values ("0.01"); }
+        fall_transition  (delay_1x1) { values ("0.01"); }
+      }
+      timing () {
+        related_pin : "B";
+        timing_sense : negative_unate;
+        cell_rise        (delay_1x1) { values ("0.10"); }
+        cell_fall        (delay_1x1) { values ("0.08"); }
+        rise_transition  (delay_1x1) { values ("0.01"); }
+        fall_transition  (delay_1x1) { values ("0.01"); }
+      }
+    }
+  }
+
+  /* ── NOR2 ──────────────────────────────────────────────── */
+  cell (NOR2) {
+    area : 0.75;
+    pin (A) { direction : input;  capacitance : 2; }
+    pin (B) { direction : input;  capacitance : 2; }
+    pin (Y) {
+      direction : output;
+      function : "!(A+B)";
+      timing () {
+        related_pin : "A";
+        timing_sense : negative_unate;
+        cell_rise        (delay_1x1) { values ("0.12"); }
+        cell_fall        (delay_1x1) { values ("0.09"); }
+        rise_transition  (delay_1x1) { values ("0.01"); }
+        fall_transition  (delay_1x1) { values ("0.01"); }
+      }
+      timing () {
+        related_pin : "B";
+        timing_sense : negative_unate;
+        cell_rise        (delay_1x1) { values ("0.12"); }
+        cell_fall        (delay_1x1) { values ("0.09"); }
+        rise_transition  (delay_1x1) { values ("0.01"); }
+        fall_transition  (delay_1x1) { values ("0.01"); }
+      }
+    }
+  }
+
+  /* ── AND2 ──────────────────────────────────────────────── */
+  cell (AND2) {
+    area : 1.00;
+    pin (A) { direction : input;  capacitance : 2; }
+    pin (B) { direction : input;  capacitance : 2; }
+    pin (Y) {
+      direction : output;
+      function : "A*B";
+      timing () {
+        related_pin : "A";
+        timing_sense : positive_unate;
+        cell_rise        (delay_1x1) { values ("0.13"); }
+        cell_fall        (delay_1x1) { values ("0.11"); }
+        rise_transition  (delay_1x1) { values ("0.01"); }
+        fall_transition  (delay_1x1) { values ("0.01"); }
+      }
+      timing () {
+        related_pin : "B";
+        timing_sense : positive_unate;
+        cell_rise        (delay_1x1) { values ("0.13"); }
+        cell_fall        (delay_1x1) { values ("0.11"); }
+        rise_transition  (delay_1x1) { values ("0.01"); }
+        fall_transition  (delay_1x1) { values ("0.01"); }
+      }
+    }
+  }
+
+  /* ── OR2 ───────────────────────────────────────────────── */
+  cell (OR2) {
+    area : 1.00;
+    pin (A) { direction : input;  capacitance : 2; }
+    pin (B) { direction : input;  capacitance : 2; }
+    pin (Y) {
+      direction : output;
+      function : "A+B";
+      timing () {
+        related_pin : "A";
+        timing_sense : positive_unate;
+        cell_rise        (delay_1x1) { values ("0.14"); }
+        cell_fall        (delay_1x1) { values ("0.12"); }
+        rise_transition  (delay_1x1) { values ("0.01"); }
+        fall_transition  (delay_1x1) { values ("0.01"); }
+      }
+      timing () {
+        related_pin : "B";
+        timing_sense : positive_unate;
+        cell_rise        (delay_1x1) { values ("0.14"); }
+        cell_fall        (delay_1x1) { values ("0.12"); }
+        rise_transition  (delay_1x1) { values ("0.01"); }
+        fall_transition  (delay_1x1) { values ("0.01"); }
+      }
+    }
+  }
+
+  /* ── XOR2 ──────────────────────────────────────────────── */
+  cell (XOR2) {
+    area : 1.50;
+    pin (A) { direction : input;  capacitance : 3; }
+    pin (B) { direction : input;  capacitance : 3; }
+    pin (Y) {
+      direction : output;
+      function : "A^B";
+      timing () {
+        related_pin : "A";
+        timing_sense : non_unate;
+        cell_rise        (delay_1x1) { values ("0.18"); }
+        cell_fall        (delay_1x1) { values ("0.16"); }
+        rise_transition  (delay_1x1) { values ("0.01"); }
+        fall_transition  (delay_1x1) { values ("0.01"); }
+      }
+      timing () {
+        related_pin : "B";
+        timing_sense : non_unate;
+        cell_rise        (delay_1x1) { values ("0.18"); }
+        cell_fall        (delay_1x1) { values ("0.16"); }
+        rise_transition  (delay_1x1) { values ("0.01"); }
+        fall_transition  (delay_1x1) { values ("0.01"); }
+      }
+    }
+  }
+
+  /* ── XNOR2 ─────────────────────────────────────────────── */
+  cell (XNOR2) {
+    area : 1.50;
+    pin (A) { direction : input;  capacitance : 3; }
+    pin (B) { direction : input;  capacitance : 3; }
+    pin (Y) {
+      direction : output;
+      function : "!(A^B)";
+      timing () {
+        related_pin : "A";
+        timing_sense : non_unate;
+        cell_rise        (delay_1x1) { values ("0.18"); }
+        cell_fall        (delay_1x1) { values ("0.16"); }
+        rise_transition  (delay_1x1) { values ("0.01"); }
+        fall_transition  (delay_1x1) { values ("0.01"); }
+      }
+      timing () {
+        related_pin : "B";
+        timing_sense : non_unate;
+        cell_rise        (delay_1x1) { values ("0.18"); }
+        cell_fall        (delay_1x1) { values ("0.16"); }
+        rise_transition  (delay_1x1) { values ("0.01"); }
+        fall_transition  (delay_1x1) { values ("0.01"); }
+      }
+    }
+  }
+
+  /* ── MUX2 ──────────────────────────────────────────────── */
+  cell (MUX2) {
+    area : 1.25;
+    pin (A) { direction : input;  capacitance : 2; }
+    pin (B) { direction : input;  capacitance : 2; }
+    pin (S) { direction : input;  capacitance : 2; }
+    pin (Y) {
+      direction : output;
+      function : "(!S*A)+(S*B)";
+      timing () {
+        related_pin : "A";
+        timing_sense : non_unate;
+        cell_rise        (delay_1x1) { values ("0.15"); }
+        cell_fall        (delay_1x1) { values ("0.13"); }
+        rise_transition  (delay_1x1) { values ("0.01"); }
+        fall_transition  (delay_1x1) { values ("0.01"); }
+      }
+      timing () {
+        related_pin : "B";
+        timing_sense : non_unate;
+        cell_rise        (delay_1x1) { values ("0.15"); }
+        cell_fall        (delay_1x1) { values ("0.13"); }
+        rise_transition  (delay_1x1) { values ("0.01"); }
+        fall_transition  (delay_1x1) { values ("0.01"); }
+      }
+      timing () {
+        related_pin : "S";
+        timing_sense : non_unate;
+        cell_rise        (delay_1x1) { values ("0.16"); }
+        cell_fall        (delay_1x1) { values ("0.14"); }
+        rise_transition  (delay_1x1) { values ("0.01"); }
+        fall_transition  (delay_1x1) { values ("0.01"); }
+      }
+    }
+  }
+
+  /* ── DFF (positive-edge, no reset pin)  ─────────────────── */
+  /* Reset/enable are expanded to MUX2 by dfflegalize          */
+  cell (DFF) {
+    area : 2.00;
+    ff (IQ, IQN) {
+      next_state : "D";
+      clocked_on : "CLK";
+    }
+    pin (CLK) {
+      direction   : input;
+      clock       : true;
+      capacitance : 5;
+    }
+    pin (D) {
+      direction   : input;
+      capacitance : 2;
+      timing () {
+        timing_type : setup_rising;
+        related_pin : "CLK";
+        rise_constraint (delay_1x1) { values ("0.20"); }
+        fall_constraint (delay_1x1) { values ("0.20"); }
+      }
+      timing () {
+        timing_type : hold_rising;
+        related_pin : "CLK";
+        rise_constraint (delay_1x1) { values ("0.05"); }
+        fall_constraint (delay_1x1) { values ("0.05"); }
+      }
+    }
+    pin (Q) {
+      direction : output;
+      function  : "IQ";
+      timing () {
+        timing_type     : rising_edge;
+        related_pin     : "CLK";
+        cell_rise        (delay_1x1) { values ("0.25"); }
+        cell_fall        (delay_1x1) { values ("0.22"); }
+        rise_transition  (delay_1x1) { values ("0.01"); }
+        fall_transition  (delay_1x1) { values ("0.01"); }
+      }
+    }
+    pin (QN) {
+      direction : output;
+      function  : "IQN";
+      timing () {
+        timing_type     : rising_edge;
+        related_pin     : "CLK";
+        cell_rise        (delay_1x1) { values ("0.25"); }
+        cell_fall        (delay_1x1) { values ("0.22"); }
+        rise_transition  (delay_1x1) { values ("0.01"); }
+        fall_transition  (delay_1x1) { values ("0.01"); }
+      }
+    }
+  }
+}

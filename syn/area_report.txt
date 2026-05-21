@@ -1,0 +1,24 @@
+
+10. Printing statistics.
+
+=== acc4 ===
+
+   Number of wires:                 50
+   Number of wire bits:             56
+   Number of public wires:           6
+   Number of public wire bits:      12
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 44
+     AND2                            6
+     DFF                             5
+     INV                             2
+     NAND2                          11
+     NOR2                           13
+     OR2                             2
+     XNOR2                           3
+     XOR2                            2
+
+   Chip area for module '\acc4': 44.500000
+

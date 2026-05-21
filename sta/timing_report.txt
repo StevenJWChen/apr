@@ -1,0 +1,24 @@
+Static Timing Analysis Report – ACC4 / demo130
+====================================================
+Clock period target : 10.0 ns  (100 MHz)
+
+Cell inventory
+  Combinational cells : 39
+  Flip-flops          : 5
+
+Critical path breakdown
+  Clock-to-Q delay    : 0.250 ns
+  Combinational delay : 6.046 ns
+  Wire delay          : 1.808 ns
+  ─────────────────────────────────────────────
+  Data arrival time   : 6.296 ns
+  Data required time  : 9.800 ns
+
+Slack
+  Setup slack : +3.504 ns  → PASS
+  Hold slack  : +0.200 ns  → PASS
+
+Performance
+  Achievable Fmax     : 154.0 MHz
+====================================================
+Overall STA status : PASS
